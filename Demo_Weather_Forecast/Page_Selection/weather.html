@@ -1,0 +1,46 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-xs-12 bg">
+            <div class="pull-left">
+                <h3 class="title">{{data.city.name}}, {{data.city.country}} (Time: {{ currentTime }})</h3>               
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 weather-days today" ng-repeat="day in data.list | filter:!dt.today">
+            <h3>{{ day.dt.day  }}</h3> 
+            <div>{{icon}}</div> 
+            <div>{{day.weather[0].main}}</div>             
+            <span class="temp-title">
+                {{ day.temp.day}}&deg;<br />
+                Max: {{ day.temp.max}}&deg;<br />
+                Min: {{ day.temp.min}}&deg;
+            </span><br /><br />
+            <span class="speed">
+                {{ day.speed }} km/h
+            </span>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+                <div class="weather-days col-xs-12 col-md-2" ng-repeat="day in data.list" ng-show="!day.dt.today">
+                    <div>
+                        <span class="badge">
+                            {{ day.dt.day  }}
+                        </span><br />
+                        <span class="temp-title">
+                            {{ day.temp.day}}&deg;
+                        </span><br />
+                        <span class="speed">
+                            {{ day.speed }} km/h
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pull-left">
+        <br />
+        <input type="text" class="form-control" placeholder="City Name" ng-model="city" /> <button class="btn btn-default" ng-click="getWeather(city)">Show weather</button>
+    </div>
+</div>

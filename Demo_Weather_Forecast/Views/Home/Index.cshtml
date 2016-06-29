@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+<html ng-app="weatherApp">
+<head>
+    <title></title>
+    @Styles.Render("~/bundles/Weather/style")
+    @Scripts.Render("~/bundles/Weather/script")
+
+</head>
+<body>
+    <h2>Index</h2>
+    <div class="container">       
+            <div class="view-animate-container">
+                <div ng-view class="view-animate"></div>
+            </div>       
+    </div>
+</body>
+</html>
